@@ -1,0 +1,9 @@
+[
+    {
+        "id": "case-001",
+        "title": "The Missing Crypto",
+        "description": "Investigate the unauthorized transfer of 500 ETH from the corporate wallet.",
+        "difficulty": "Intermediate",
+        "status": "Active"
+    }
+]

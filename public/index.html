@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxive Academy</title>
+    <link rel="stylesheet" href="css/style.css?v=1.1">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* FluxiveOS Vision Mark */
+        .vision-mark-container {
+            position: fixed;
+            top: 25px;
+            right: 30px;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .vision-mark-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            font-size: 14px;
+            background: linear-gradient(180deg, #051A45 0%, #0066FF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.5);
+            filter: drop-shadow(0 0 10px rgba(0, 102, 255, 0.3));
+        }
+
+        .vision-mark-sup {
+            background: linear-gradient(90deg, #0066FF, #00F3FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 0.6em;
+            margin-left: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- VISION MARK (FluxiveOS Standard) -->
+    <div class="vision-mark-container">
+        <span class="vision-mark-text">Fluxive<sup class="vision-mark-sup">OS</sup></span>
+    </div>
+
+    <header>
+        <a href="index.html" class="logo-container">
+            <div class="logo-icon"></div>
+            <div class="logo-text">FLUXIVE <span>ACADEMY</span></div>
+        </a>
+        <nav>
+            <a href="index.html">Courses</a>
+            <a href="#">Paths</a>
+            <a href="#">Community</a>
+            <a href="admin.html"
+                style="color:var(--accent-lime); border:1px solid rgba(204,255,0,0.3); padding:5px 10px; border-radius:4px;">Admin</a>
+        </nav>
+        <div class="user-actions">
+            <a href="#" class="cyber-btn cyber-btn-sm">Log In</a>
+        </div>
+    </header>
+
+    <main class="public-layout">
+        <section class="hero">
+            <h1>FLUXIVE <span class="highlight">LEARNING</span></h1>
+            <p>
+                The knowledge engine for the machine age.
+                Master the tools, rewrite the rules, and engineer the future.
+            </p>
+        </section>
+
+        <div id="course-list" class="course-grid">
+            <div class="loading">Initializing Library Data...</div>
+        </div>
+    </main>
+
+    <!-- Include mForceLaunch -->
+    <script src="https://machineforce.fluxive.ai/launch.js" type="module"></script>
+
+    <script type="module">
+        // Auth Integration
+        window.addEventListener('mforce-auth-changed', (event) => {
+            const { user, token } = event.detail;
+            const logInBtn = document.querySelector('.user-actions a');
+
+            if (user) {
+                // User is Logged In
+                console.log('Welcome, ' + user.displayName);
+                if (logInBtn) {
+                    logInBtn.textContent = 'Account';
+                    logInBtn.href = '#';
+                    logInBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const launchpad = document.querySelector('mforce-launchpad');
+                        if (launchpad) launchpad.openModal('profile');
+                    });
+                }
+
+                // Set global auth flag for main.js mock checks
+                localStorage.setItem('isAuth', 'true');
+
+                // If main.js has logic dependent on this, re-run or reload? 
+                // For now, let's just ensure localStorage is set so checks pass.
+
+            } else {
+                // User is Guest
+                if (logInBtn) {
+                    logInBtn.textContent = 'Log In';
+                    logInBtn.href = '#';
+                    // Remove old listener if possible, but safer to just overwrite logic or use fresh clone
+                    // Since we are inline, let's just set the click handler logic dynamically
+                    logInBtn.onclick = (e) => {
+                        e.preventDefault();
+                        const launchpad = document.querySelector('mforce-launchpad');
+                        if (launchpad) launchpad.openModal('signin');
+                    };
+                }
+                localStorage.removeItem('isAuth');
+            }
+        });
+
+        // Wire generic login buttons if any exist initially
+        document.addEventListener('DOMContentLoaded', () => {
+            const logInBtn = document.querySelector('.user-actions a');
+            if (logInBtn) {
+                logInBtn.addEventListener('click', (e) => {
+                    // Default handler before auth state loads
+                    e.preventDefault();
+                    const launchpad = document.querySelector('mforce-launchpad');
+                    if (launchpad) launchpad.openModal('signin');
+                });
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
+
+    <!-- mForce Launchpad (Production Source) -->
+    <script src="https://machineforce.fluxive.ai/node_modules/zone.js/fesm2015/zone.js"></script>
+    <script src="https://machineforce.fluxive.ai/launch.js" type="module"></script>
+
+</body>
+
+</html>

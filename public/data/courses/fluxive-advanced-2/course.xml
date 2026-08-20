@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Course id="fluxive-advanced-2" version="1.0">
+  <Metadata>
+    <Title>Advanced 2</Title>
+    <Author>Instructor Name</Author>
+    <Description>Course Description</Description>
+    <Price>199</Price>
+    <Image>assets/thumb.jpg</Image>
+  </Metadata>
+  <Content>
+  </Content>
+</Course>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Course id="fluxive-101" version="1.0">
+  <Metadata>
+    <Title>Fluxive 101: Agentic Fundamentals</Title>
+    <Author>System Architect</Author>
+    <Description>
+      Welcome to the Machineforce. This primer sequence initiates you into the core protocols of the Fluxive Ecosystem.
+      You will learn to navigate the node graph, interface with autonomous agents, and architect your first neural workflow.
+      
+      Prerequisites: None. 
+      Estimated Time: 45 Minutes.
+    </Description>
+    <Price>0</Price>
+    <Image>https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop</Image>
+    <Folder>Fundamentals</Folder>
+    <Duration>45 Min</Duration>
+    <Tags>Onboarding, Agents, Workflow</Tags>
+  </Metadata>
+  <Content>
+    <Module>
+      <Title>Module 1: The Machineforce</Title>
+      <Unit id="m1-u1" type="text">
+        <Title>Manifesto</Title>
+        <Duration>5 Min</Duration>
+        <BodyContent>
+          <![CDATA[
+            <h1>The Shift is Here.</h1>
+            <p>We are moving from <strong>Instructional</strong> computing to <strong>Intent-based</strong> computing.</p>
+            <p>In the old world, you told the machine specifically <em>how</em> to do something.
+            <br>In the Fluxive world, you tell the machine <em>what</em> you want to achieve.</p>
+            
+            <div class="highlight-box">
+                <h3>Core Axiom</h3>
+                <p>Agents are not just tools; they are active collaborators in the creative process.</p>
+            </div>
+            
+            <p>Continue to the next video to see this in action.</p>
+          ]]>
+        </BodyContent>
+      </Unit>
+      <Unit id="m1-u2" type="video">
+        <Title>Vision Briefing</Title>
+        <Duration>12 Min</Duration>
+        <SourceURL>https://www.youtube.com/embed/dQw4w9WgXcQ</SourceURL> <!-- Mock Video -->
+        <Description>A visual introduction to the Fluxive Neural Network architecture.</Description>
+      </Unit>
+    </Module>
+    
+    <Module>
+      <Title>Module 2: Architecture</Title>
+      <Unit id="m2-u1" type="text">
+        <Title>Nodes & Edges</Title>
+        <Duration>15 Min</Duration>
+        <BodyContent>
+          <![CDATA[
+            <h2>The Graph Mindset</h2>
+            <p>Everything in Fluxive is a <strong>Node</strong> connected by <strong>Edges</strong>.</p>
+            <ul>
+                <li><strong>Agents</strong> are nodes that perform work.</li>
+                <li><strong>Artifacts</strong> are nodes that store data.</li>
+                <li><strong>Triggers</strong> are edges that initiate flow.</li>
+            </ul>
+            <p>Visualizing your problem as a graph is the first step to solving it with Fluxive.</p>
+          ]]>
+        </BodyContent>
+      </Unit>
+      <Unit id="m2-u2" type="quiz">
+        <Title>Knowledge Check</Title>
+        <Duration>5 Min</Duration>
+        <BodyContent>
+          <![CDATA[
+            <h3>Protocol Verification</h3>
+            <p>1. What is the primary unit of execution in Fluxive?</p>
+            <ul>
+                <li>[ ] A Script</li>
+                <li>[x] An Agent Node</li>
+                <li>[ ] A Database Row</li>
+            </ul>
+            <p><em>(Interactive quiz engine coming in v2.0)</em></p>
+          ]]>
+        </BodyContent>
+      </Unit>
+    </Module>
+  </Content>
+</Course>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILE | Fluxive Academy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">FLUXIVE <span>ACADEMY ILE</span></div>
+        <nav>
+            <a href="#" id="back-to-course">Exit</a>
+        </nav>
+    </header>
+
+    <div class="ile-layout">
+        <!-- LEFT: Navigation Sidebar -->
+        <aside class="sidebar-left resizable" id="sidebar-left">
+            <div class="panel-header">
+                <a href="index.html" class="logo-container" style="text-decoration:none;">
+                    <div class="logo-icon" style="width:30px; height:30px;"></div>
+                    <div class="logo-text" style="font-size:1rem;">FLUXIVE</div>
+                </a>
+            </div>
+            <div id="lesson-nav" class="module-nav">
+                <!-- Injected via JS -->
+            </div>
+        </aside>
+
+        <!-- RESIZER 1 -->
+        <div class="resizer" id="drag-left"></div>
+
+        <!-- CENTER: Main Activity -->
+        <main class="ile-main glass-pane">
+            <div class="activity-window" style="flex-grow: 1; min-height: 200px;">
+                <div class="activity-content">
+                    <h1 id="lesson-title">Select a Lesson</h1>
+                    <div id="lesson-content">
+                        <!-- Video/Text Content Injected Here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vertical Resizer -->
+            <div class="resizer-vertical" id="drag-middle"></div>
+
+            <!-- Sandbox Panel -->
+            <div class="sandbox-panel"
+                style="height: 300px; min-height: 100px; display:flex; flex-direction:column; background: #222;">
+                <div class="sandbox-header"
+                    style="padding:10px; background:#111; border-top:1px solid #333; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size:0.8rem; color:#aaa; font-weight:bold;">SANDBOX</span>
+                    <button onclick="runSandbox()" class="btn-primary" style="padding:4px 12px; font-size:0.8rem;">Run
+                        Code</button>
+                </div>
+                <div style="flex-grow:1; display:flex; border-top:1px solid #333;">
+                    <textarea id="sandbox-code" class="code-editor" spellcheck="false">// Try writing JS code here
+console.log("Hello Fluxive Academy!");</textarea>
+                    <div id="sandbox-output" class="code-output">
+                        // Output will appear here
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- RESIZER 2 -->
+        <div class="resizer" id="drag-right"></div>
+
+        <!-- RIGHT: Learner Tools (Notes, Artifacts, Resources) -->
+        <aside class="ile-mm-tools glass-pane">
+            <div class="tools-tabs">
+                <button class="tab-btn active" onclick="switchTab('notes')">Notes</button>
+                <button class="tab-btn" onclick="switchTab('copilot')">AI</button>
+                <button class="tab-btn" onclick="switchTab('flashcards')">Cards</button>
+                <button class="tab-btn" onclick="switchTab('artifacts')">Files</button>
+            </div>
+
+            <div class="tools-content">
+                <!-- Notes Tab -->
+                <div id="tab-notes" class="tab-pane active" style="height: 100%;">
+                    <textarea id="notes-area" class="notes-editor"
+                        placeholder="Type your notes here... (Auto-saved)"></textarea>
+                </div>
+
+                <!-- AI Copilot Tab -->
+                <div id="tab-copilot" class="tab-pane" style="height: 100%; padding:0;">
+                    <div class="chat-container">
+                        <div id="chat-messages" class="chat-messages">
+                            <div class="chat-message ai">Hello! I'm your Fluxive Learning Assistant. How can I help you
+                                with this lesson?</div>
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" id="chat-input" class="chat-input" placeholder="Ask a question...">
+                            <button onclick="sendMessage()" class="btn-send">&#10148;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flashcards Tab -->
+                <div id="tab-flashcards" class="tab-pane">
+                    <div id="flashcards-list" class="flashcards-list">
+                        <!-- Injected via flashcards.js -->
+                    </div>
+                </div>
+
+                <!-- Artifacts Tab -->
+                <div id="tab-artifacts" class="tab-pane">
+                    <p style="color:#666; font-size:0.8rem; margin-top:0;">Downloadable files for this course:</p>
+                    <div id="artifacts-list">
+                        <!-- Injected -->
+                    </div>
+                </div>
+
+                <!-- Resources Tab -->
+                <div id="tab-resources" class="tab-pane">
+                    <p style="color:#666; font-size:0.8rem; margin-top:0;">External links & references:</p>
+                    <div id="resources-list">
+                        <!-- Injected -->
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/resizable.js"></script>
+    <script src="js/hover-engine.js"></script>
+    <script src="js/sandbox.js"></script>
+    <script src="js/copilot.js"></script>
+    <script src="js/flashcards.js"></script>
+</body>
+
+</html>

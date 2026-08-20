@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Course id="fluxive-challenge-1" version="1.0">
+  
+  <Metadata>
+    <Title>Fluxive Challenge: Organizational Alignment</Title>
+    <Author>Fluxive Academy</Author>
+    <Description>Master the principles of aligning workforce and machineforce. This challenge mimics the real-world scenarios you will face when implementing Fluxive's governance strategies. Learn to orchestrate AI agents, human teams, and strategic objectives into a unified operational framework.</Description>
+    <Tags>Management, AI Governance, Strategy, Machineforce</Tags>
+    <Price>499.00</Price>
+    <Image>assets/challenge_thumb.jpg</Image>
+    <Duration>3h 15m</Duration>
+  </Metadata>
+
+  <KnowledgeGraph>
+    <Node id="node_alignment" label="Alignment" status="unlocked" />
+    <Node id="node_machineforce" label="Machineforce" status="locked" dependency="node_alignment" />
+    <Node id="node_governance" label="Governance" status="locked" dependency="node_machineforce" />
+  </KnowledgeGraph>
+
+  <EnvironmentSettings>
+    <DefaultLayout>split_video_code</DefaultLayout>
+    <ToolsEnabled>
+      <Tool name="terminal">false</Tool>
+      <Tool name="browser_preview">true</Tool>
+      <Tool name="ai_copilot">true</Tool>
+    </ToolsEnabled>
+  </EnvironmentSettings>
+
+  <Glossary>
+    <Term id="def_alignment">
+      <Keyword>Alignment</Keyword>
+      <Definition>The process of ensuring all organizational vectors are pointing in the same strategic direction.</Definition>
+    </Term>
+    <Term id="def_machineforce">
+      <Keyword>Machineforce</Keyword>
+      <Definition>The integrated network of automated agents and AI systems working alongside humans.</Definition>
+    </Term>
+    <Term id="def_governance">
+      <Keyword>Governance</Keyword>
+      <Definition>Frameworks and policies that ensure AI systems operate ethically, securely, and effectively.</Definition>
+    </Term>
+  </Glossary>
+
+  <Content>
+    
+    <Module id="mod-1" nodeRef="node_alignment">
+      <Title>Module 1: The New Standard</Title>
+      
+      <Unit id="less-1-1" type="video">
+        <Title>Introduction to Alignment</Title>
+        <SourceURL>/videos/intro_alignment.mp4</SourceURL>
+        <Duration>5:30</Duration>
+        <Transcript>
+          <Segment start="00:00" end="00:15">Welcome to the Fluxive Challenge. Today we define what it means to be aligned.</Segment>
+          <Segment start="00:16" end="00:45">In a world of autonomous agents, alignment is no longer just about human consensus.</Segment>
+        </Transcript>
+        <Description>Understanding the core philosophy of Fluxive and the necessity of alignment in AI-driven orgs.</Description>
+      </Unit>
+
+      <Unit id="less-1-2" type="text">
+        <Title>Manifesto: The Machineforce</Title>
+        <Duration>10:00</Duration>
+        <BodyContent>
+          <![CDATA[
+            <h2>Defining the Machineforce</h2>
+            <p>AI Agents are not just tools; they are part of the workforce. See <span class="highlight-glossary" ref="def_machineforce">Machineforce</span>.</p>
+            <p><strong>Key Principles:</strong></p>
+            <ul>
+                <li>Autonomy with Oversight</li>
+                <li>Transparent Decision Chains</li>
+                <li>Continuous Learning feedback loops</li>
+            </ul>
+          ]]>
+        </BodyContent>
+        <Description>Read the foundational manifesto that defines the role of AI agents.</Description>
+      </Unit>
+    </Module>
+
+    <Module id="mod-2" nodeRef="node_machineforce">
+      <Title>Module 2: Orchestrating Agents</Title>
+      
+      <Unit id="less-2-1" type="video">
+        <Title>Agent Architecture 101</Title>
+        <SourceURL>/videos/agent_arch.mp4</SourceURL>
+        <Duration>12:15</Duration>
+        <Description>A deep dive into how Fluxive agents are structured and deployed.</Description>
+      </Unit>
+
+      <Unit id="less-2-2" type="code">
+        <Title>Lab: Configure Your First Agent</Title>
+        <Duration>20:00</Duration>
+        <BodyContent>
+             <![CDATA[
+            <h3>Mission: Agent Configuration</h3>
+            <p>Use the Sandbox to define a simple agent manifest using JSON.</p>
+            <pre>
+{
+  "name": "ServiceBot",
+  "role": "customer_support",
+  "capabilities": ["search", "reply"]
+}
+            </pre>
+          ]]>
+        </BodyContent>
+        <Description>Hands-on practice configuring a basic agent manifest in the Sandbox environment.</Description>
+      </Unit>
+      
+       <Unit id="less-2-3" type="quiz">
+        <Title>Quiz: Agent Capabilities</Title>
+        <Duration>5:00</Duration>
+        <Description>Verify your understanding of agent restrictions and capabilities.</Description>
+         <Checkpoints>
+          <Pause time="00:00">
+             <Prompt>Which parameter defines an agent's operational scope?</Prompt>
+             <Option>Name</Option>
+             <Option correct="true">Role</Option>
+             <Option>Color</Option>
+          </Pause>
+        </Checkpoints>
+      </Unit>
+    </Module>
+
+    <Module id="mod-3" nodeRef="node_governance">
+        <Title>Module 3: Governance &amp; Ethics</Title>
+        <Unit id="less-3-1" type="text">
+            <Title>The Ethics of Automation</Title>
+            <Duration>15:00</Duration>
+            <BodyContent>
+                <![CDATA[
+                <h2>Governance Frameworks</h2>
+                <p>Ensuring your <span class="highlight-glossary" ref="def_governance">Governance</span> strategy is robust against drift.</p>
+                ]]>
+            </BodyContent>
+            <Description>Critical reading on the ethical deployment of autonomous systems.</Description>
+        </Unit>
+    </Module>
+
+  </Content>
+  
+  <Artifacts>
+     <Artifact name="Alignment_Framework_v2.pdf" url="#" />
+     <Artifact name="Machineforce_Workbook.xlsx" url="#" />
+     <Artifact name="Agent_Manifest_Template.json" url="#" />
+  </Artifacts>
+
+  <Resources>
+     <Resource title="Fluxive Whitepaper: The New Work" url="#" />
+     <Resource title="Case Study: FinTech Automation" url="#" />
+     <Resource title="Official Documentation" url="https://docs.fluxive.ai" />
+  </Resources>
+
+</Course>

@@ -1,0 +1,49 @@
+[
+  {
+    "id": "full-stack-agent-dev",
+    "title": "Full Stack Agent Developer",
+    "description": "Zero to Hero path for building autonomous agents using Fluxive.",
+    "thumbnail": "path_thumb_1.jpg",
+    "items": [
+      {
+        "type": "course",
+        "id": "fluxive-101",
+        "title": "Fluxive 101"
+      },
+      {
+        "type": "article",
+        "url": "https://fluxive.ai/docs/architecture",
+        "title": "Understanding Agent Architecture"
+      },
+      {
+        "type": "course",
+        "id": "fluxive-advanced",
+        "title": "Advanced Protocols"
+      }
+    ]
+  },
+  {
+    "id": "ml-ops-path",
+    "title": "ML Ops Master",
+    "description": "Testing Learning Path",
+    "items": [
+      {
+        "type": "course",
+        "id": "fluxive-101",
+        "title": "Fluxive 101"
+      },
+      {
+        "type": "article",
+        "url": "https://google.com",
+        "title": "Intro to ML"
+      }
+    ],
+    "thumbnail": "path_thumb_1.jpg"
+  },
+  {
+    "id": "verify-path-2",
+    "title": "Verification Path 2",
+    "description": "Created by automated agent retry.",
+    "items": []
+  }
+]
