@@ -20,3 +20,26 @@ yarn-error.log*
 # Cloud files
 config.json
 service-account.json
+
+# IDE & OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.log
+
+# Dependencies
+node_modules/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Local Env
+.env
+.env.local
+
+# Documentation / Non-Runtime Content
+*.md
+!mForceOS1.md
+!README.md
