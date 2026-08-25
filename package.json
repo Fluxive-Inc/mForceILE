@@ -12,7 +12,10 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^5.2.1",
-    "fast-xml-parser": "^5.3.3"
+    "express": "^4.19.2",
+    "fast-xml-parser": "^5.3.3",
+    "cookie-parser": "^1.4.6",
+    "pg": "^8.13.1",
+    "dotenv": "^16.4.5"
   }
 }

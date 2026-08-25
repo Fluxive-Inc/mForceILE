@@ -1,26 +1,14 @@
-# Use the official Node.js 18 image.
-# https://hub.docker.com/_/node
-FROM node:18-slim
-
-# Create and change to the app directory.
-WORKDIR /usr/src/app
-
-# Copy application dependency manifests to the container image.
-# A wildcard is used to ensure both package.json AND package-lock.json are copied.
-# Copying this first prevents re-running npm install on every code change.
+# Flutter/Node Perimeter Stage
+FROM node:20-alpine
+WORKDIR /app
 COPY package*.json ./
+RUN npm install --production
+COPY server.js perimeter-guard.js perimeter.html ./
+# Flutter web build is already done locally in our scenario, but in CI it would be built.
+# We'll just copy the UI build output
+COPY mforce_ile_ui/build/web ./dist
 
-# Install production dependencies.
-# If you add a package-lock.json speed your build by switching to 'npm ci'.
-RUN npm ci --only=production
-
-# Copy local code to the container image.
-COPY . .
-
-# Service must listen to $PORT environment variable.
-# Cloud Run sets the PORT env var to 8080 by default.
-ENV PORT 8080
 EXPOSE 8080
-
-# Run the web service on container startup.
-CMD [ "npm", "start" ]
+ENV PORT=8080
+ENV NODE_ENV=production
+CMD ["node", "server.js"]
