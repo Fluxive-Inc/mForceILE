@@ -150,39 +150,94 @@
 </div>
 
 <!-- Launchpad Bootloader -->
-<script src="https://run.fluxive.ai/launch.js" data-mfu-key="mfu_app_perimeter" async></script>
+<script src="https://run.fluxive.ai/launch-stub.js" data-mfu-key="mfu_ile_perimeter" async></script>
 
 <script>
-    // mForceLaunch Handshake Protocol
-    function handleAuth(event) {
-        if(sessionStorage.getItem('mf_bounce')) return;
-        sessionStorage.setItem('mf_bounce', 'true');
-        
-        const idToken = event.detail ? event.detail.idToken : localStorage.getItem('mforce_auth_token');
-        if(!idToken) return;
-        
-        fetch('/sessionLogin', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ idToken })
-        })
-        .then(r => r.ok ? r.json() : Promise.reject(r.status))
-        .then(data => {
-            window.location.replace('/app'); // Load app without full reload
-        })
-        .catch(err => {
-            sessionStorage.removeItem('mf_bounce');
-            console.error("Auth failed", err);
-        });
-    }
+    // ── mForceLaunch v2 host contract ──────────────────────────────────────
+    // interactions/mForceLaunch_interaction.md §1/§5 + perimeter-protocol §3.
+    // The host only listens and sizes the enclave; the pill owns tokens,
+    // sessions and org state. No bespoke token plumbing here.
+    (function () {
+      var ENCLAVE = 'https://run.fluxive.ai';
+      var busy = false;
 
-    window.addEventListener('mforce-auth-changed', handleAuth);
-    window.addEventListener('fluxive-auth-ready', handleAuth);
-    window.addEventListener('message', (e) => {
-        if(e.origin === 'https://launch.fluxive.ai' || e.origin === 'https://run.fluxive.ai') {
-            if(e.data && e.data.type === 'auth-success') handleAuth({detail: {idToken: e.data.token}});
+      // §3 — exchange the Firebase idToken for the signed __session cookie,
+      // then ENTER. Never reload() on auth; that is the login-loop bug.
+      function enter(idToken, profile) {
+        if (!idToken || busy) return;
+        if (sessionStorage.getItem('mf_bounce')) return;
+        busy = true;
+        sessionStorage.setItem('mf_bounce', 'true');
+
+        fetch('/sessionLogin', {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ idToken })
+        })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (data) {
+          try {
+            localStorage.setItem('mforce_auth_token', idToken);
+            localStorage.setItem('mforce_user_profile', JSON.stringify(profile || data));
+          } catch (_) {}
+          sessionStorage.removeItem('mf_bounce');
+          window.location.replace('/app');
+        })
+        .catch(function (err) {
+          busy = false;
+          sessionStorage.removeItem('mf_bounce');
+          console.error('[perimeter] sessionLogin failed', err);
+        });
+      }
+
+      // §1 — canonical events. The deprecated aliases (fluxive-auth-ready,
+      // mforce-auth-changed, MFORCE_AUTH_TUNNEL) are deliberately NOT bound:
+      // §4 says updated hosts ignore them, and MFORCE_AUTH_TUNNEL is an
+      // internal enclave relay that hosts must not consume.
+      window.addEventListener('mforce-auth-ready', function (e) {
+        var u = (e.detail && e.detail.user) || null;
+        var t = (e.detail && (e.detail.idToken || e.detail.token))
+             || (u && (u.idToken || u.accessToken))
+             || localStorage.getItem('mforce_auth_token');
+        if (t) { enter(t, u); }
+        else if (window.FXHud && FXHud.api && FXHud.api.getIdToken) {
+          Promise.resolve(FXHud.api.getIdToken()).then(function (tok) { enter(tok, u); });
         }
-    });
+      });
+
+      window.addEventListener('mforce-signed-out', function () {
+        try {
+          localStorage.removeItem('mforce_auth_token');
+          localStorage.removeItem('mforce_user_profile');
+          sessionStorage.removeItem('mf_bounce');
+        } catch (_) {}
+      });
+
+      // §3 — a live session means we are already through the gate.
+      if (document.cookie.indexOf('__session=') !== -1 && !sessionStorage.getItem('mf_bounce')) {
+        sessionStorage.setItem('mf_bounce', 'true');
+        window.location.replace('/app');
+      }
+
+      // §1/§5 — size the enclave, origin-gated. Anything not from the enclave
+      // origin is dropped before it is routed.
+      window.addEventListener('message', function (e) {
+        if (e.origin !== ENCLAVE) return;
+        var d = e.data;
+        if (!d || d.type !== 'MFORCE_RESIZE') return;
+        var p = d.payload || {};
+        var f = document.querySelector('#mforce-launch-container iframe');
+        if (!f) return;
+        if (p.width)  { f.style.width  = typeof p.width  === 'number' ? p.width  + 'px' : p.width; }
+        if (p.height) { f.style.height = typeof p.height === 'number' ? p.height + 'px' : p.height; }
+      });
+
+      // §1 — theme follows the shell (Orbital Protocol).
+      window.addEventListener('mforce-theme-change', function (e) {
+        try { document.body.classList.toggle('solar-theme', !!(e.detail && e.detail.solar)); } catch (_) {}
+      });
+    })();
 </script>
 </body>
 </html>
