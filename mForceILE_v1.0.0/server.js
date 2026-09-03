@@ -3,7 +3,7 @@ const express = require('express');
 const db = require('./db');
 const cookieParser = require('cookie-parser');
 const path = require('path');
-const { signSession, requireAuth } = require('./perimeter-guard');
+const { sessionLogin, requireAuth } = require('./perimeter-guard');
 
 const app = express();
 app.use(cookieParser());
@@ -24,12 +24,7 @@ const PORT = process.env.PORT || 8080;
 const DIST_DIR = path.join(__dirname, 'mforce_ile_ui/build/web'); 
 
 app.get('/', (req, res) => { if (req.cookies.__session) return res.redirect('/app'); res.sendFile(path.join(__dirname, 'perimeter.html')); });
-app.post('/sessionLogin', (req, res) => {
-    const idToken = req.body.idToken;
-    if (!idToken) return res.status(401).json({error: 'Unauthorized'});
-    res.cookie('__session', signSession(idToken), { maxAge: 1000 * 60 * 60 * 24 * 5, httpOnly: true, secure: process.env.NODE_ENV === 'production' });
-    res.json({ status: 'success' });
-});
+app.post('/sessionLogin', sessionLogin);
 app.get('/app', requireAuth, (req, res) => { res.sendFile(path.join(DIST_DIR, 'index.html')); });
 app.use(express.static(DIST_DIR, { index: false }));
 app.get('*', requireAuth, (req, res) => { res.sendFile(path.join(DIST_DIR, 'index.html')); });
