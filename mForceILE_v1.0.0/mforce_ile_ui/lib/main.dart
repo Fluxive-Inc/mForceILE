@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'command_deck_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'state/modules_provider.dart';
 import 'orbital_protocol.dart';
@@ -18,8 +19,8 @@ class MyApp extends StatelessWidget {
       builder: (context, mode, _) => MaterialApp(
         title: 'Interactive Learning Environment',
         themeMode: mode,
-        theme: ThemeData(useMaterial3: true, brightness: Brightness.light, colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF3B82F6), brightness: Brightness.light), scaffoldBackgroundColor: const Color(0xFFF5F7FA)),
-        darkTheme: ThemeData.dark(),
+        theme: CommandDeck.solar(CommandDeck.accentDefault),
+        darkTheme: CommandDeck.lunar(CommandDeck.accentDefault),
         home: const DashboardScreen(),
       ),
     );
