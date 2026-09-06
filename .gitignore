@@ -109,3 +109,16 @@ _archive/
 
 # flutter-generated (machine-specific absolute paths) — never commit
 **/flutter_export_environment.sh
+
+# ── ecosystem hygiene guard (audit 2026-09) — never track build output / venvs / scratch ──
+**/node_modules/
+**/venv/
+**/test_venv/
+**/__pycache__/
+**/.dart_tool/
+**/build/web/
+**/dist/
+_to_delete/
+**/_to_delete/
+*.pre_*
+*.pre_subsadmin
