@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'state/modules_provider.dart';
+import 'orbital_protocol.dart';
 
 void main() {
+  initOrbital();
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -11,10 +13,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Interactive Learning Environment',
-      theme: ThemeData.dark(),
-      home: const DashboardScreen(),
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: orbitalMode,
+      builder: (context, mode, _) => MaterialApp(
+        title: 'Interactive Learning Environment',
+        themeMode: mode,
+        theme: ThemeData(useMaterial3: true, brightness: Brightness.light, colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF3B82F6), brightness: Brightness.light), scaffoldBackgroundColor: const Color(0xFFF5F7FA)),
+        darkTheme: ThemeData.dark(),
+        home: const DashboardScreen(),
+      ),
     );
   }
 }
