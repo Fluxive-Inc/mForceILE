@@ -1,3 +1,6 @@
+// ⚠ VENDORED — DO NOT EDIT HERE.
+// Source of truth: .mforce/lib/orbital-protocol/orbital_protocol.dart   ·   change it there, then run ./sync-modules.sh
+// Synced: 2026-09-14T02:09:48Z
 // ── Orbital Protocol ──────────────────────────────────────────────────────────
 // Shared Solar (light) / Lunar (dark) theme control for every mForceOS1 app.
 // Dependency-free (only dart:html + material). Compiles standalone on modern
@@ -20,8 +23,20 @@
 import 'dart:html' as html;
 import 'package:flutter/material.dart';
 
-/// Global theme mode driven by the mForceLaunch Orbital toggle. Lunar (dark) default.
+/// Global theme mode driven by the mForceLaunch Orbital toggle.
+///
+/// The fleet default is Lunar (dark). An app whose product decision differs —
+/// mForceBridge defaults to Solar per BRG-SOLAR — calls [setOrbitalDefault]
+/// once at startup, BEFORE the first build. That keeps one canonical body:
+/// a per-app value is a parameter, never a second copy of this file.
+/// Whatever launch.js sets afterwards always wins over this seed.
 final ValueNotifier<ThemeMode> orbitalMode = ValueNotifier<ThemeMode>(ThemeMode.dark);
+
+/// Seed the default mode. No effect once launch.js has spoken.
+void setOrbitalDefault({required bool solar}) {
+  if (_orbitalWired) return;
+  orbitalMode.value = solar ? ThemeMode.light : ThemeMode.dark;
+}
 
 bool _orbitalWired = false;
 

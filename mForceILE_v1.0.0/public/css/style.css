@@ -27,7 +27,7 @@
 body {
     background-color: var(--bg-color);
     /* Vignette effect */
-    background-image: radial-gradient(circle at center, #111 0%, #000 70%);
+    background-image: radial-gradient(circle at center, #111 0%, var(--bg-color) 70%);
     color: var(--text-primary);
     font-family: var(--font-main);
     margin: 0;
@@ -43,7 +43,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #000;
+    background: var(--bg-color);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -76,7 +76,7 @@ header {
     font-weight: 800;
     font-size: 1.2rem;
     letter-spacing: 0.1em;
-    color: #fff;
+    color: var(--deck);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -181,7 +181,7 @@ nav a.active {
     font-weight: 800;
     margin: 0 0 15px 0;
     line-height: 1.1;
-    color: #fff;
+    color: var(--deck);
 }
 
 .course-header-meta {
@@ -262,7 +262,7 @@ nav a.active {
 
 .course-thumb {
     height: 200px;
-    background: #050505;
+    background: var(--bg-color);
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid var(--border-color);
@@ -295,7 +295,7 @@ nav a.active {
     font-size: 1.4rem;
     font-weight: 700;
     margin: 0 0 10px;
-    color: #fff;
+    color: var(--deck);
 }
 
 .course-desc {
@@ -316,7 +316,7 @@ nav a.active {
     justify-content: center;
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
+    color: var(--deck);
     padding: 12px 24px;
     border-radius: 8px;
     text-decoration: none;
@@ -459,7 +459,7 @@ nav a.active {
 }
 
 .lesson-link:hover {
-    color: #fff;
+    color: var(--deck);
     background: rgba(255, 255, 255, 0.03);
 }
 
@@ -473,7 +473,7 @@ nav a.active {
 .tools-tabs {
     display: flex;
     border-bottom: 1px solid var(--border-color);
-    background: #080808;
+    background: var(--panel-bg);
 }
 
 .tab-btn {
@@ -490,7 +490,7 @@ nav a.active {
 }
 
 .tab-btn:hover {
-    color: #aaa;
+    color: var(--text-secondary);
 }
 
 .tab-btn.active {
@@ -535,7 +535,7 @@ nav a.active {
 
 .chat-message.user {
     background: var(--accent-blue);
-    color: #fff;
+    color: var(--deck);
     align-self: flex-end;
 }
 
@@ -558,7 +558,7 @@ nav a.active {
     border: 1px solid #333;
     padding: 8px;
     border-radius: 6px;
-    color: #fff;
+    color: var(--deck);
 }
 
 /* --- ILE Components Refactor --- */
@@ -609,13 +609,13 @@ nav a.active {
 .nav-btn.next {
     background: var(--primary-color);
     border-color: var(--primary-color);
-    color: #fff;
+    color: var(--deck);
 }
 
 .nav-btn.next:hover {
     background: var(--accent-cyan);
     border-color: var(--accent-cyan);
-    color: #000;
+    color: var(--bg-color);
 }
 
 /* Video Player */
@@ -625,7 +625,7 @@ nav a.active {
     /* Keep it within container */
     padding-bottom: 56.25%;
     /* 16:9 Aspect Ratio */
-    background: #000;
+    background: var(--bg-color);
     margin-bottom: 20px;
     border-radius: 8px;
     overflow: hidden;
@@ -710,7 +710,7 @@ nav a.active {
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    background: #000;
+    background: var(--bg-color);
 }
 
 /* Sidebar */
@@ -764,7 +764,7 @@ nav a.active {
 
 .nav-item:hover {
     background: rgba(255, 255, 255, 0.05);
-    color: #fff;
+    color: var(--deck);
 }
 
 .nav-item.active {
@@ -797,14 +797,14 @@ nav a.active {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: var(--deck);
     font-weight: bold;
     font-size: 0.8rem;
 }
 
 .user-info .name {
     font-size: 0.85rem;
-    color: #fff;
+    color: var(--deck);
     font-weight: 600;
 }
 
@@ -819,7 +819,7 @@ nav a.active {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background: radial-gradient(circle at top right, #1a1b20 0%, #000 60%);
+    background: radial-gradient(circle at top right, #1a1b20 0%, var(--bg-color) 60%);
     position: relative;
     overflow: hidden;
 }
@@ -844,7 +844,7 @@ nav a.active {
 }
 
 .breadcrumbs span {
-    color: #fff;
+    color: var(--deck);
 }
 
 .content-scroll {
@@ -880,7 +880,7 @@ nav a.active {
 .stat-value {
     font-size: 2rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--deck);
     font-family: var(--font-mono);
 }
 
@@ -945,7 +945,7 @@ nav a.active {
 .logo-text {
     font-weight: 700;
     font-size: 1.2rem;
-    color: #fff;
+    color: var(--deck);
     letter-spacing: 0.5px;
 }
 
@@ -997,7 +997,7 @@ nav a.active {
 
 /* --- Path Editor Modal Specifics --- */
 #path-editor-modal .modal-content {
-    background: #0f0f13;
+    background: var(--panel);
     /* Solid dark background for readability */
     border: 1px solid var(--accent-blue);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
@@ -1013,7 +1013,7 @@ nav a.active {
 #path-editor-modal label {
     display: block;
     margin-bottom: 5px;
-    color: #aaa;
+    color: var(--text-secondary);
     font-size: 0.9em;
 }
 
@@ -1021,7 +1021,7 @@ nav a.active {
 #path-editor-modal textarea {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid #333;
-    color: #fff;
+    color: var(--deck);
     padding: 10px;
     border-radius: 6px;
     width: 100%;
@@ -1037,7 +1037,7 @@ nav a.active {
 
 #path-items-container {
     border: 1px solid #333;
-    background: #050505 !important;
+    background: var(--bg-color) !important;
     /* Ensure high contrast for list */
 }
 
