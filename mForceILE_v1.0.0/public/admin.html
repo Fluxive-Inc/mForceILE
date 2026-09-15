@@ -69,15 +69,22 @@
                 <div class="stats-grid animate-fade-in">
                     <div class="stat-card glass-panel">
                         <h3>Total Courses</h3>
-                        <div class="stat-value" id="total-courses">0</div>
+                        <!-- FLT-DATA-3: em dash, not a number. standards/dashboards.md:
+                             "a tile with no data shows —, never 0 dressed as real".
+                             JS replaces this once the fetch lands. -->
+                        <div class="stat-value" id="total-courses">&mdash;</div>
                     </div>
                     <div class="stat-card glass-panel">
                         <h3>Active Learners</h3>
-                        <div class="stat-value" id="total-learners">1,245</div>
+                        <!-- FLT-DATA-3: this said 1,245 — an invented figure baked into
+                             the markup. It showed until the fetch landed, and FOREVER if
+                             the fetch failed. -->
+                        <div class="stat-value" id="total-learners">&mdash;</div>
                     </div>
                     <div class="stat-card glass-panel">
                         <h3>Unread Messages</h3>
-                        <div class="stat-value" id="unread-messages">3</div>
+                        <!-- FLT-DATA-3: was a hardcoded 3. -->
+                        <div class="stat-value" id="unread-messages">&mdash;</div>
                     </div>
                 </div>
 
