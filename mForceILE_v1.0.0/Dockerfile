@@ -10,6 +10,9 @@ COPY server.js perimeter-guard.js perimeter.html db.js ./
 # Flutter web build is already done locally in our scenario, but in CI it would be built.
 # We'll just copy the UI build output
 COPY mforce_ile_ui/build/web ./dist
+# Added by _scripts/fix-image-requires.sh — these are required at boot and were
+# not in the image. git shipping a file is not the same as the image holding it.
+COPY errlog-console.js fleet-scope.js mforce-security.js ./
 
 EXPOSE 8080
 ENV PORT=8080
