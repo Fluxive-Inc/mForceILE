@@ -51,14 +51,14 @@
 
             <!-- Sandbox Panel -->
             <div class="sandbox-panel"
-                style="height: 300px; min-height: 100px; display:flex; flex-direction:column; background: #222;">
+                style="height: 300px; min-height: 100px; display:flex; flex-direction:column; background: var(--cd-line, #222);">
                 <div class="sandbox-header"
-                    style="padding:10px; background:#111; border-top:1px solid #333; display:flex; justify-content:space-between; align-items:center;">
+                    style="padding:10px; background:var(--cd-panel, #111); border-top:1px solid var(--cd-line-2, #333); display:flex; justify-content:space-between; align-items:center;">
                     <span style="font-size:0.8rem; color:var(--text-secondary); font-weight:bold;">SANDBOX</span>
                     <button onclick="runSandbox()" class="btn-primary" style="padding:4px 12px; font-size:0.8rem;">Run
                         Code</button>
                 </div>
-                <div style="flex-grow:1; display:flex; border-top:1px solid #333;">
+                <div style="flex-grow:1; display:flex; border-top:1px solid var(--cd-line-2, #333);">
                     <textarea id="sandbox-code" class="code-editor" spellcheck="false">// Try writing JS code here
 console.log("Hello Fluxive Academy!");</textarea>
                     <div id="sandbox-output" class="code-output">
@@ -110,7 +110,7 @@ console.log("Hello Fluxive Academy!");</textarea>
 
                 <!-- Artifacts Tab -->
                 <div id="tab-artifacts" class="tab-pane">
-                    <p style="color:#666; font-size:0.8rem; margin-top:0;">Downloadable files for this course:</p>
+                    <p style="color:var(--cd-mut-2, #666); font-size:0.8rem; margin-top:0;">Downloadable files for this course:</p>
                     <div id="artifacts-list">
                         <!-- Injected -->
                     </div>
@@ -118,7 +118,7 @@ console.log("Hello Fluxive Academy!");</textarea>
 
                 <!-- Resources Tab -->
                 <div id="tab-resources" class="tab-pane">
-                    <p style="color:#666; font-size:0.8rem; margin-top:0;">External links & references:</p>
+                    <p style="color:var(--cd-mut-2, #666); font-size:0.8rem; margin-top:0;">External links & references:</p>
                     <div id="resources-list">
                         <!-- Injected -->
                     </div>

@@ -47,7 +47,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #333;
+    background: var(--cd-line-2, #333);
     border-radius: 3px;
 }
 
@@ -217,7 +217,7 @@ nav a.active {
 .course-poster {
     width: 100%;
     aspect-ratio: 16/9;
-    background-color: #111;
+    background-color: var(--cd-panel, #111);
     background-size: cover;
     background-position: center;
     border-radius: 12px;
@@ -381,9 +381,9 @@ nav a.active {
 .resizer-vertical {
     height: 8px;
     cursor: row-resize;
-    background: #111;
-    border-top: 1px solid #222;
-    border-bottom: 1px solid #222;
+    background: var(--cd-panel, #111);
+    border-top: 1px solid var(--cd-line, #222);
+    border-bottom: 1px solid var(--cd-line, #222);
     width: 100%;
 }
 
@@ -396,12 +396,12 @@ nav a.active {
     content: '';
     width: 2px;
     height: 20px;
-    background: #333;
+    background: var(--cd-line-2, #333);
 }
 
 /* Glass Components */
 .glass-pane {
-    background: #111;
+    background: var(--cd-panel, #111);
     /* Darker for high contrast */
     border: 1px solid var(--border-color);
     border-radius: 12px;
@@ -435,7 +435,7 @@ nav a.active {
     border-bottom: 1px solid var(--border-color);
     font-size: 0.75rem;
     text-transform: uppercase;
-    color: #666;
+    color: var(--cd-mut-2, #666);
     letter-spacing: 0.05em;
     font-weight: 700;
 }
@@ -449,7 +449,7 @@ nav a.active {
 .lesson-link {
     display: block;
     padding: 10px 12px;
-    color: #888;
+    color: var(--cd-mut, #888);
     text-decoration: none;
     font-size: 0.85rem;
     border-radius: 6px;
@@ -479,7 +479,7 @@ nav a.active {
 .tab-btn {
     background: transparent;
     border: none;
-    color: #666;
+    color: var(--cd-mut-2, #666);
     padding: 12px;
     cursor: pointer;
     font-size: 0.8rem;
@@ -502,7 +502,7 @@ nav a.active {
 .notes-editor {
     background: transparent;
     border: none;
-    color: #ccc;
+    color: var(--cd-ink-2, #ccc);
     font-family: var(--font-mono);
     width: 100%;
     height: 100%;
@@ -541,7 +541,7 @@ nav a.active {
 
 .chat-message.ai {
     background: rgba(255, 255, 255, 0.05);
-    color: #ddd;
+    color: var(--text, #ddd);
     align-self: flex-start;
 }
 
@@ -554,8 +554,8 @@ nav a.active {
 
 .chat-input {
     flex-grow: 1;
-    background: #111;
-    border: 1px solid #333;
+    background: var(--cd-panel, #111);
+    border: 1px solid var(--cd-line-2, #333);
     padding: 8px;
     border-radius: 6px;
     color: var(--deck);
@@ -696,7 +696,7 @@ nav a.active {
 
 .feedback-error {
     margin-top: 10px;
-    color: #ff4444;
+    color: var(--cd-crit, #ff4444);
     font-weight: bold;
     padding: 10px;
     background: rgba(255, 0, 0, 0.1);
@@ -749,7 +749,7 @@ nav a.active {
     gap: 12px;
     padding: 10px 12px;
     border-radius: 8px;
-    color: #888;
+    color: var(--cd-mut, #888);
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
@@ -810,7 +810,7 @@ nav a.active {
 
 .user-info .role {
     font-size: 0.75rem;
-    color: #666;
+    color: var(--cd-mut-2, #666);
 }
 
 /* Main Content */
@@ -819,7 +819,7 @@ nav a.active {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background: radial-gradient(circle at top right, #1a1b20 0%, var(--bg-color) 60%);
+    background: radial-gradient(circle at top right, var(--cd-surface, #1a1b20) 0%, var(--bg-color) 60%);
     position: relative;
     overflow: hidden;
 }
@@ -840,7 +840,7 @@ nav a.active {
 
 .breadcrumbs {
     font-size: 0.9rem;
-    color: #888;
+    color: var(--cd-mut, #888);
 }
 
 .breadcrumbs span {
@@ -873,7 +873,7 @@ nav a.active {
     margin: 0 0 10px;
     font-size: 0.85rem;
     text-transform: uppercase;
-    color: #666;
+    color: var(--cd-mut-2, #666);
     letter-spacing: 0.05em;
 }
 
@@ -899,7 +899,7 @@ nav a.active {
     text-align: left;
     padding: 15px 20px;
     border-bottom: 1px solid var(--border-color);
-    color: #888;
+    color: var(--cd-mut, #888);
     font-weight: 500;
     text-transform: uppercase;
     font-size: 0.75rem;
@@ -909,7 +909,7 @@ nav a.active {
 .data-table td {
     padding: 15px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-    color: #ddd;
+    color: var(--text, #ddd);
     transition: background 0.2s;
 }
 
@@ -977,7 +977,7 @@ nav a.active {
 }
 
 .modal-content {
-    background: #111;
+    background: var(--cd-panel, #111);
     border: 1px solid var(--border-color);
     padding: 30px;
     border-radius: 12px;
@@ -1020,7 +1020,7 @@ nav a.active {
 #path-editor-modal .input-field,
 #path-editor-modal textarea {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #333;
+    border: 1px solid var(--cd-line-2, #333);
     color: var(--deck);
     padding: 10px;
     border-radius: 6px;
@@ -1036,7 +1036,7 @@ nav a.active {
 }
 
 #path-items-container {
-    border: 1px solid #333;
+    border: 1px solid var(--cd-line-2, #333);
     background: var(--bg-color) !important;
     /* Ensure high contrast for list */
 }
@@ -1044,10 +1044,10 @@ nav a.active {
 /* Path Item Styling */
 #path-items-container>div {
     border-left: 3px solid var(--accent-cyan);
-    background: #1a1a1a !important;
+    background: var(--cd-surface, #1a1a1a) !important;
     transition: background 0.2s;
 }
 
 #path-items-container>div:hover {
-    background: #222 !important;
+    background: var(--cd-line, #222) !important;
 }

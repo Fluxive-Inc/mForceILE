@@ -146,7 +146,7 @@
                         <h2>Learning Paths</h2>
                         <button onclick="openPathEditor()" class="cyber-btn cyber-btn-sm">+ Create Path</button>
                     </div>
-                    <div class="toolbar glass-panel" style="margin-bottom:20px; padding:15px; color:#888;">
+                    <div class="toolbar glass-panel" style="margin-bottom:20px; padding:15px; color:var(--cd-mut, #888);">
                         Manage curated bundles of courses and external resources.
                     </div>
                     <div id="paths-grid" class="paths-grid"
@@ -240,7 +240,7 @@
 
             <div style="display:flex; justify-content:space-between; margin-top:20px;">
                 <button type="button" onclick="deleteCourse()" id="btn-delete"
-                    style="background:rgba(255, 0, 0, 0.1); color:#ff5555; border:1px solid rgba(255,0,0,0.3); padding:10px 20px; border-radius:6px; cursor:pointer; transition:all 0.2s;">Delete
+                    style="background:rgba(255, 0, 0, 0.1); color:var(--cd-crit, #ff5555); border:1px solid rgba(255,0,0,0.3); padding:10px 20px; border-radius:6px; cursor:pointer; transition:all 0.2s;">Delete
                     / Archive</button>
                 <button type="button" onclick="saveCourse()" class="btn-primary">Save Changes</button>
             </div>
@@ -320,14 +320,14 @@
                 <div id="path-items-list"
                     style="max-height:200px; overflow-y:auto; border:1px solid rgba(255,255,255,0.05); border-radius:8px; padding:5px;">
                     <!-- Items buffer -->
-                    <div style="padding:20px; text-align:center; color:#666; font-size:0.8rem;">No items added yet.
+                    <div style="padding:20px; text-align:center; color:var(--cd-mut-2, #666); font-size:0.8rem;">No items added yet.
                     </div>
                 </div>
             </div>
 
             <div style="display:flex; justify-content:flex-end; gap:10px;">
                 <button onclick="document.getElementById('path-editor-modal').style.display='none'" class="cyber-btn"
-                    style="background:transparent; border:1px solid #555;">Cancel</button>
+                    style="background:transparent; border:1px solid var(--text-muted, #555);">Cancel</button>
                 <button onclick="savePath()" class="btn-primary">Save Path</button>
             </div>
         </div>
@@ -380,11 +380,11 @@
 
             <div style="display:flex; justify-content:space-between; margin-top:30px;">
                 <button type="button" onclick="deleteCase()" id="btn-delete-case"
-                    style="background:rgba(255, 0, 0, 0.1); color:#ff5555; border:1px solid rgba(255,0,0,0.3); padding:10px 20px; border-radius:6px; cursor:pointer; transition:all 0.2s; display:none;">Delete
+                    style="background:rgba(255, 0, 0, 0.1); color:var(--cd-crit, #ff5555); border:1px solid rgba(255,0,0,0.3); padding:10px 20px; border-radius:6px; cursor:pointer; transition:all 0.2s; display:none;">Delete
                     Case</button>
                 <div style="display:flex; gap:10px; margin-left:auto;">
                     <button onclick="document.getElementById('case-editor-modal').style.display='none'"
-                        class="cyber-btn" style="background:transparent; border:1px solid #555;">Cancel</button>
+                        class="cyber-btn" style="background:transparent; border:1px solid var(--text-muted, #555);">Cancel</button>
                     <button onclick="saveCase()" class="btn-primary">Save Case</button>
                 </div>
             </div>
